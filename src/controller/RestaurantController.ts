@@ -73,4 +73,6 @@ const searchRestaurants = async (req: Request, res: Response) => {
   }
 };
 
-export default { searchRestaurants };
+
+const getRestaurant = async (req: Request, res: Response) => {};
+export default { searchRestaurants, getRestaurant };
