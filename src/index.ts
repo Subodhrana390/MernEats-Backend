@@ -40,8 +40,8 @@ const keepAlive = () => {
     try {
       const res = await axios.get('https://merneats-backend-fumi.onrender.com/health');
       console.log(`Self-ping success: ${res.data}`);
-    } catch (error: AxiosError) { 
-      console.error('Self-ping failed:', error.message);
+    } catch (error: any) { 
+  console.error('Self-ping failed:', error.message);
     }
   }, 13 * 60 * 1000);
 };
