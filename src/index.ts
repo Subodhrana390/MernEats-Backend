@@ -33,7 +33,19 @@ app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health OK!" });
 });
 
+
+const keepAlive = () => {
+  setInterval(async () => {
+    try {
+      const res = await axios.get('https://merneats-backend-fumi.onrender.com/health');
+      console.log(`Self-ping success: ${res.data}`);
+    } catch (error) {
+      console.error('Self-ping failed:', error.message);
+    }
+  }, 13 * 60 * 1000);
+};
 app.listen(7000, () => {
   console.log("server started on localhost:7000");
+  keepAlive();
 });
     
